@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-ingress
+  annotations:
+    ngnix.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: www.rh.com
+      http:
+          paths:
+           - path: /sear
+             pathType: Prefix
+             backend:
+                service:
+                   name: searchde
+                   port: 
+                       number: 80
+            
+           - path: /mai
+             pathType: Prefix
+             backend:
+                service:
+                   name: mailde
+                   port: 
+                       number: 80
+
+     
+
